@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<%include ../partials/head.ejs%>
+
+<body>
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <% include ../partials/header.ejs %>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <%include ../partials/sidebar.ejs%>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row align-items-center">
+                <div class="col-5">
+                    <h4 class="page-title">Billing Management</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Inventory Management</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="row mr-1">
+                    <div class="col text-right">
+                        <button type="button" class="btn btn-success" ng-click="openModal('add')">
+                            Add Student
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Sales chart -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Table -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Table -->
+            <div class="clearfix"></div>
+            <div class="table-responsive">
+                <table st-table="displayedCollection" st-safe-src="students" id="smart-table"
+                       class="table table-hover table-center table-sm table-bordered table-striped text-center text-nowrap">
+                    <thead>
+                    <tr>
+                        <th st-sort="products" class="sortable asc">Products</th>
+                        <th st-sort="quantity" class="sortable asc">Quantity</th>
+                        <th st-sort="unit" class="sortable asc">Unit</th>
+                        <th st-sort="price" class="sortable asc">Price</th>
+                        <th>Settings</th>
+
+                    </tr>
+                    <tr class="bg-light">
+                        <td>
+                            <input type="text" st-search="products"
+                                   placeholder="Search"
+                                   class="input-sm form-control">
+                        </td>
+                        <td>
+                            <input type="text" st-search="quantity"
+                                   placeholder="Search"
+                                   class="input-sm form-control">
+                        </td>
+                        <td>
+                            <input type="text" st-search="unit"
+                                   placeholder="Search"
+                                   class="input-sm form-control">
+                        </td>
+                        <td>
+                            <input type="text" st-search="price"
+                                   placeholder="Search"
+                                   class="input-sm form-control">
+                        </td>
+                        <td></td>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr st-select-row="row" st-select-mode="multiple"
+                        ng-repeat="student in displayedCollection |filter: searchData" ng-cloak>
+                        <td>{{student.products}}</td>
+                        <td>{{student.quantity}}</td>
+                        <td>{{student.unit}}</td>
+                        <td>{{student.price}}</td>
+                        <td>
+                            <button class="btn btn-xl" ng-click="openModal('edit', student)"
+                                    style="border: 0.5px solid;border-radius: 30px;"><i
+                                        class="fa fa-edit text-success" aria-hidden="true"></i></button>
+                            <button class="btn btn-xl" ng-click="deleteStudent(student.UserID)"
+                                    style="border: 0.5px solid;border-radius: 30px"><i
+                                        class="fa fa-trash text-danger" aria-hidden="true"></i></button>
+                        </td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                </table>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <% include ../partials/footer.ejs%>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<% include modal.ejs %>
+<script>
+    <% include ng-app.js %>
+</script>
+<%include ../partials/script.ejs%>
+</body>
+
+</html>

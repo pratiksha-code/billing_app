@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<%include ../partials/head.ejs%>
+
+<body>
+<!-- ============================================================== -->
+<!-- Preloader - style you can find in spinners.css -->
+<!-- ============================================================== -->
+<div class="preloader">
+    <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- Main wrapper - style you can find in pages.scss -->
+<!-- ============================================================== -->
+<div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full" data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+    <!-- ============================================================== -->
+    <!-- Topbar header - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <% include ../partials/header.ejs %>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <%include ../partials/sidebar.ejs%>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row align-items-center">
+                <div class="col-5">
+                    <h4 class="page-title">Billing Management</h4>
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Inventory Management</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-7">
+                    <div class="text-right upgrade-btn">
+                        <a ng-click="openModal('add')" class="btn btn-success text-white" target="_blank">Add Product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Sales chart -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Table -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <!-- column -->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- title -->
+                            <div class="d-md-flex align-items-center">
+                                <div>
+                                    <h4 class="card-title">Top Selling Products</h4>
+                                    <h5 class="card-subtitle">Overview of Top Selling Items</h5>
+                                </div>
+                                <div class="ml-auto">
+                                    <div class="dl">
+                                        <select class="custom-select">
+                                            <option value="0" selected>Monthly</option>
+                                            <option value="1">Daily</option>
+                                            <option value="2">Weekly</option>
+                                            <option value="3">Yearly</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- title -->
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table v-middle" id="smart-table">
+                                <thead>
+                                <tr class="bg-light">
+                                    <th class="border-top-0">Products</th>
+                                    <th class="border-top-0">Quantity</th>
+                                    <th class="border-top-0">Unit</th>
+
+
+                                    <th class="border-top-0">Price</th>
+                                    <th class="border-top-0">Action</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="m-r-10"><a class="btn btn-circle btn-purple text-white">S</a></div>
+                                            <div class="">
+                                                <h4 class="m-b-0 font-16">sugar</h4>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>50</td>
+                                    <td>KG</td>
+
+                                    <td>
+                                        <h5 class="m-b-0">$2850.06</h5>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary btn-rounded btn-fw">Edit</button>
+                                        <button type="button" class="btn btn-danger btn-rounded btn-fw">Delete</button>
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ============================================================== -->
+            <!-- Table -->
+
+            <!-- ============================================================== -->
+            <!-- End PAge Content -->
+            <!-- ============================================================== -->
+            <!-- ============================================================== -->
+            <!-- Right sidebar -->
+            <!-- ============================================================== -->
+            <!-- .right-sidebar -->
+            <!-- ============================================================== -->
+            <!-- End Right sidebar -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Container fluid  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- footer -->
+        <!-- ============================================================== -->
+        <% include ../partials/footer.ejs%>
+        <!-- ============================================================== -->
+        <!-- End footer -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Page wrapper  -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<% include modal.ejs %>
+<script>
+    <% include ng-app.js %>
+</script>
+<%include ../partials/script.ejs%>
+</body>
+
+</html>
